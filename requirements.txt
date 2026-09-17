@@ -1,0 +1,15 @@
+fastapi==0.141.1
+uvicorn==0.52.4
+mysql-connector-python==26.7.0
+python-dotenv==1.2.3
+pydantic==2.13.4
+pydantic-settings==2.15.0
+PyJWT==2.13.0
+passlib==1.7.4
+bcrypt==5.0.0
+python-multipart==0.0.32
+idemptx==0.2.2
+
+# dev/test only
+pytest==9.1.1
+httpx==0.28.1
