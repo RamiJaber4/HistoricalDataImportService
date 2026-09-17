@@ -35,6 +35,19 @@ for the full spec.
    VALUES (1, 'alice', '<hash from above>', 'staff');
    ```
 
+## Database schema
+
+`imports`, `valid_data`, `invalid_data` already exist (created outside this repo);
+`companies`/`users` are created by `schema.sql`. Documented here for reference:
+
+| Table | Columns |
+|---|---|
+| `imports` | `track_id` char(36) PK, `total_rows` int, `valid_rows` int, `invalid_rows` int, `filename` text, `uploaded_at` timestamp |
+| `valid_data` | `id` int PK auto_increment, `recipient_name` text, `address` text, `status` text |
+| `invalid_data` | `id` int PK auto_increment, `track_id` char(36), `row_num` int, `raw_row` json, `errors` json, `created_at` timestamp |
+| `companies` (new) | `id` int PK auto_increment, `name` varchar(255) |
+| `users` (new) | `id` int PK auto_increment, `company_id` int FK -> companies.id (NULL for admins), `username` varchar(255) unique, `hashed_password` varchar(255), `role` enum('staff','admin') |
+
 ## Running
 
 ```
